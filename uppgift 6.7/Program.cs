@@ -1,24 +1,27 @@
-﻿using System;
+using System;
 
-namespace uppgift_6._7
+namespace Uppgifter
 {
     class Program
     {
         static void Main()
         {
-            Console.WriteLine(ÄrPrimtal(23));
+            Console.WriteLine(AntalTalIText("5 4,1 hej 9,04"));
         }
 
-        static bool ÄrPrimtal(int tal)
+        static int AntalTalIText(string text)
         {
-            if (tal < 2) return false;
+            string[] delar = text.Split(' ');
+            int antal = 0;
 
-            for (int i = 2; i < tal; i++)
-                if (tal % i == 0)
-                    return false;
+            foreach (string d in delar)
+                if (double.TryParse(d, out _))
+                    antal++;
 
-            return true;
+            return antal;
         }
     }
 }
+
+
 
